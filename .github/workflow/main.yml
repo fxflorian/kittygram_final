@@ -130,7 +130,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags:  fxflorian/kittygram_frontend:latest
+          tags: fxflorian/kittygram_frontend:latest
 
   build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
@@ -185,7 +185,7 @@ jobs:
           # которые нужно выполнить на сервере, 
           # с которым установлено соединение
           script: | 
-            cd kittygram # НУЖНО ПРАВИТЬ 
+            cd kittygram
             # Выполняет pull образов с DockerHub
             sudo docker compose -f docker-compose.production.yml pull
             # Перезапускает все контейнеры в docker compose
