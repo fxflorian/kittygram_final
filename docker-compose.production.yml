@@ -19,6 +19,7 @@ services:
     volumes:
       - static:/static
       - media:/app/media
+
   frontend:
     image: fxflorian/kittygram_frontend  # Качаем с DockerHub
     env_file: .env
