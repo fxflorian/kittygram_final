@@ -5,14 +5,13 @@ volumes:
   static:
   media:
 
-
-# Всё отличие – заменяем build на image и указываем, какой образ использовать
 services:
   db:
     image: postgres:13.10
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+
   backend:
     image: fxflorian/kittygram_backend
     env_file: .env
@@ -21,13 +20,14 @@ services:
       - media:/app/media
 
   frontend:
-    image: fxflorian/kittygram_frontend  # Качаем с DockerHub
+    image: fxflorian/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
+
   gateway:
-    image: fxflorian/kittygram_gateway  # Качаем с DockerHub
+    image: fxflorian/kittygram_gateway
     env_file: .env
     volumes:
       - static:/static
